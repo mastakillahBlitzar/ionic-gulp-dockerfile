@@ -13,4 +13,4 @@ RUN sudo npm install -g ionic@3.9.2 \
 && sudo npm install -g cordova-plugin-splashscreen \
 && sudo npm install -g cordova-plugin-ionic-webview \
 && sudo npm install -g karma-cli \
-&& sudo npm install -g aws-sdk \
+&& sudo npm install -g aws-sdk
