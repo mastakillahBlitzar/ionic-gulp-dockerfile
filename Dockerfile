@@ -1,11 +1,10 @@
 # Create image based on the official Node 6 image from dockerhub
 FROM circleci/node:8.15.0-browsers
 
-RUN uname -a
 RUN sudo curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-&& sudo unzip awscliv2.zip \
-&& sudo ./aws/install \
-&& aws2 --version
+    && sudo unzip awscliv2.zip \
+    && sudo ./aws/install \
+    && aws2 --version
 
 RUN sudo npm install -g ionic@3.9.2 \
     && sudo npm install -g cordova \
