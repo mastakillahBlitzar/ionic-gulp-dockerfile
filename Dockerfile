@@ -1,19 +1,25 @@
-# Create image based on the official Node 6 image from dockerhub
-FROM circleci/node:8.15.0-browsers
+FROM circleci/python:3.7.3-browsers
 
-RUN sudo curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-    && sudo unzip awscliv2.zip \
-    && sudo ./aws/install \
-    && aws2 --version
+RUN pip3 --version
+RUN sudo pip3 install awscli --upgrade
+RUN aws --version
 
-RUN sudo npm install -g ionic@3.9.2 \
-    && sudo npm install -g cordova \
-    && sudo npm install -g gulp \
-    && sudo npm install -g gulp-s3 \
-    && sudo npm install -g sonarqube-scanner \
-    && sudo npm install -g ionic-plugin-keyboard \
-    && sudo npm install -g cordova-plugin-whitelist \
-    && sudo npm install -g cordova-plugin-device \
-    && sudo npm install -g cordova-plugin-splashscreen \
-    && sudo npm install -g cordova-plugin-ionic-webview \
-    && sudo npm install -g karma-cli
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+ENV NODE_VERSION 8.15.0
+ENV NVM_DIR /home/circleci/.nvm
+RUN . ~/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+RUN npm install -g ionic@3.9.2 \
+    && npm install -g cordova \
+    && npm install -g gulp \
+    && npm install -g gulp-s3 \
+    && npm install -g sonarqube-scanner \
+    && npm install -g ionic-plugin-keyboard \
+    && npm install -g cordova-plugin-whitelist \
+    && npm install -g cordova-plugin-device \
+    && npm install -g cordova-plugin-splashscreen \
+    && npm install -g cordova-plugin-ionic-webview \
+    && npm install -g karma-cli
