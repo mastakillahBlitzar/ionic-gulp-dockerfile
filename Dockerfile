@@ -15,7 +15,6 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN npm install -g ionic@3.9.2 \
     && npm install -g cordova \
     && npm install -g gulp \
-    && npm install -g gulp-s3 \
     && npm install -g sonarqube-scanner \
     && npm install -g ionic-plugin-keyboard \
     && npm install -g cordova-plugin-whitelist \
@@ -23,3 +22,4 @@ RUN npm install -g ionic@3.9.2 \
     && npm install -g cordova-plugin-splashscreen \
     && npm install -g cordova-plugin-ionic-webview \
     && npm install -g karma-cli
+    && npm install -g yarn
