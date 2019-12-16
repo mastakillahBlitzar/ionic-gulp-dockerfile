@@ -21,5 +21,5 @@ RUN npm install -g ionic@3.9.2 \
     && npm install -g cordova-plugin-device \
     && npm install -g cordova-plugin-splashscreen \
     && npm install -g cordova-plugin-ionic-webview \
-    && npm install -g karma-cli
+    && npm install -g karma-cli \
     && npm install -g yarn
